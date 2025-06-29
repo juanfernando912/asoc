@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Servicios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Color personalizado para el fondo lila claro */
+        .bg-custom-lilac {
+            background-color: #f3f0ff;
+        }
+        /* Color personalizado para el borde lila */
+        .border-custom-purple {
+            border-color: #7c3aed; /* Un tono de morado de Tailwind */
+        }
+        /* Color personalizado para el texto principal */
+        .text-custom-dark {
+           color: #111827; /* gray-900 */
+        }
+        /* Color para el texto secundario */
+        .text-custom-gray {
+            color: #4b5563; /* gray-600 */
+        }
+        /* Icon color */
+        .icon-color {
+            color: #6d28d9; /* violet-700 */
+        }
+    </style>
+</head>
+<body class="bg-white">
+
+    <!-- Sección Superior con Texto Introductorio -->
+    <section class="bg-white py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-lg text-custom-gray leading-relaxed">
+                personas un abanico de herramientas para proteger y resguardar sus datos personales y otros derechos digitales que puedan verse afectados.
+            </p>
+            <p class="mt-4 text-lg text-custom-gray leading-relaxed max-w-5xl mx-auto">
+                Nuestros servicios abarcan diversas áreas, incluyendo datos personales, propiedad intelectual, ciberseguridad, entre otros, ofreciendo asesoramiento a medida para garantizar el cumplimiento normativo y la seguridad en el entorno digital.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección de 3 Items con Separación Superior -->
+    <section class="bg-white pt-20 pb-12 sm:pt-24 sm:pb-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+
+                <!-- Item 1: Expertos en la materia -->
+                <div class="bg-custom-lilac p-8 rounded-2xl">
+                    <!-- Icono Placeholder -->
+                    <div class="flex justify-center items-center mb-4">
+                        <svg class="w-12 h-12 icon-color" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286Z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-custom-dark mb-2">Expertos en la materia</h3>
+                    <p class="text-custom-gray">
+                        Nuestro equipo está compuesto por profesionales con amplia experiencia, certificaciones internacionales en permanente capacitación de las novedades del mundo tecnológico.
+                    </p>
+                </div>
+
+                <!-- Item 2: Enfoque personalizado -->
+                <div class="bg-custom-lilac p-8 rounded-2xl border-2 border-custom-purple shadow-lg">
+                    <!-- Icono Placeholder -->
+                    <div class="flex justify-center items-center mb-4">
+                        <svg class="w-12 h-12 icon-color" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-custom-dark mb-2">Enfoque personalizado</h3>
+                    <p class="text-custom-gray">
+                        Adaptamos nuestros servicios a las necesidades específicas, garantizando soluciones eficaces y prácticas a la medida de sus negocios.
+                    </p>
+                </div>
+
+                <!-- Item 3: Compromiso ético y responsable -->
+                <div class="bg-custom-lilac p-8 rounded-2xl">
+                    <!-- Icono Placeholder -->
+                    <div class="flex justify-center items-center mb-4">
+                        <svg class="w-12 h-12 icon-color" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                           <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m-7.5-2.962a3.752 3.752 0 0 1-4.238-4.238 3.752 3.752 0 0 1 4.238-4.238 3.752 3.752 0 0 1 4.238 4.238A3.752 3.752 0 0 1 10.5 11.25m-3.75 2.25c-.918 0-1.733-.234-2.458-.635A3.752 3.752 0 0 1 6 11.25c0-1.59.962-2.956 2.344-3.535A3.752 3.752 0 0 1 10.5 6c1.59 0 2.956.962 3.535 2.344A3.752 3.752 0 0 1 15 11.25c0 .595-.14 1.158-.385 1.664M5.25 18.75h13.5" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-custom-dark mb-2">Compromiso ético y responsable</h3>
+                    <p class="text-custom-gray">
+                        Promovemos el uso ético y responsable de los datos y la IA, asegurando el respeto por los derechos de privacidad.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Misión con espacio inferior reducido -->
+    <section class="bg-white pb-20 pt-8 sm:pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-custom-dark">
+                Nuestra Misión: Proteger tus Derechos en la Era Digital.
+            </h2>
+        </div>
+    </section>
+
+    <!-- Placeholder para la siguiente sección -->
+    <section class="bg-custom-lilac py-20">
+         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center text-custom-dark">
+                Nuestros servicios
+            </h2>
+         </div>
+    </section>
+
+</body>
+</html>
+
