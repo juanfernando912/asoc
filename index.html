@@ -3,120 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestros Servicios</title>
+    <title>Privaia Asociación Civil - Defendemos tu Privacidad</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Favicon (Ejemplo con un ícono de escudo) -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+
     <style>
+        /* Usar la fuente Inter para todo el cuerpo */
         body {
             font-family: 'Inter', sans-serif;
         }
-        /* Color personalizado para el fondo lila claro */
-        .bg-custom-lilac {
-            background-color: #f3f0ff;
+        /* Definición de la paleta de colores del tema basada en el logo */
+        .bg-primary { background-color: #203656; } /* Azul principal del logo */
+        .bg-secondary-dark { background-color: #192B48; } /* Un azul ligeramente más oscuro para contraste */
+        .bg-card-dark { background-color: #2A4268; } /* Un azul más claro para las tarjetas */
+
+        .text-light { color: #f8f9fa; }
+        .text-muted-light { color: #cbd5e1; }
+        .text-accent { color: #3b82f6; } /* Mantenemos un azul brillante para acentos y links */
+        .border-accent { border-color: #3b82f6; }
+        .ring-accent { --tw-ring-color: #3b82f6; }
+
+        /* Estilos para el formulario en tema oscuro */
+        .focus\:border-accent:focus {
+            border-color: #3b82f6;
         }
-        /* Color personalizado para el borde lila */
-        .border-custom-purple {
-            border-color: #7c3aed; /* Un tono de morado de Tailwind */
-        }
-        /* Color personalizado para el texto principal */
-        .text-custom-dark {
-           color: #111827; /* gray-900 */
-        }
-        /* Color para el texto secundario */
-        .text-custom-gray {
-            color: #4b5563; /* gray-600 */
-        }
-        /* Icon color */
-        .icon-color {
-            color: #6d28d9; /* violet-700 */
+        .focus\:ring-accent:focus {
+            --tw-ring-color: #3b82f6;
         }
     </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#203656', // Azul principal del logo
+                        'secondary-dark': '#192B48', // Tono más oscuro
+                        'card-dark': '#2A4268', // Tono para tarjetas
+                        'light': '#f8f9fa',
+                        'muted-light': '#cbd5e1',
+                        accent: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-white">
+<body class="bg-primary text-muted-light antialiased">
 
-    <!-- Sección Superior con Texto Introductorio -->
-    <section class="bg-white py-12 px-4 sm:px-6 lg:px-8">
-        <div class="max-w-7xl mx-auto text-center">
-            <p class="text-lg text-custom-gray leading-relaxed">
-                personas un abanico de herramientas para proteger y resguardar sus datos personales y otros derechos digitales que puedan verse afectados.
-            </p>
-            <p class="mt-4 text-lg text-custom-gray leading-relaxed max-w-5xl mx-auto">
-                Nuestros servicios abarcan diversas áreas, incluyendo datos personales, propiedad intelectual, ciberseguridad, entre otros, ofreciendo asesoramiento a medida para garantizar el cumplimiento normativo y la seguridad en el entorno digital.
-            </p>
+    <!-- Header / Navegación -->
+    <header class="bg-primary sticky top-0 z-40 border-b border-gray-700">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Logotipo -->
+            <a href="#">
+                <img src="Loco AC.png" alt="Logotipo de Privaia A.C." class="h-12 w-auto">
+            </a>
+            <nav class="hidden md:flex space-x-8">
+                <a href="#especializados" class="text-muted-light hover:text-white transition duration-300">Especializados</a>
+                <a href="#objeto" class="text-muted-light hover:text-white transition duration-300">Objeto</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden p-2 rounded-md text-muted-light hover:bg-card-dark focus:outline-none focus:ring-2 focus:ring-inset focus:ring-accent">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
         </div>
-    </section>
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4 bg-primary">
+            <a href="#especializados" class="block py-2 text-muted-light hover:text-white">Especializados</a>
+            <a href="#objeto" class="block py-2 text-muted-light hover:text-white">Objeto</a>
+        </div>
+    </header>
 
-    <!-- Sección de 3 Items con Separación Superior -->
-    <section class="bg-white pt-20 pb-12 sm:pt-24 sm:pb-16">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+    <main>
+        <!-- Sección Principal (Hero) -->
+        <section class="bg-primary text-white">
+            <div class="container mx-auto px-6 py-20 md:py-32 text-center">
+                <h2 class="text-4xl md:text-6xl font-extrabold leading-tight text-light">Defendemos tu Privacidad</h2>
+                <p class="mt-6 text-lg md:text-xl max-w-3xl mx-auto text-muted-light">
+                    Somos una asociación civil sin fines de lucro enfocada en la protección de los Datos Personales y otros Derechos Digitales de los ciudadanos.
+                </p>
+                <button id="open-contact-button" class="mt-10 inline-block bg-accent hover:bg-blue-500 text-white font-bold py-3 px-8 rounded-lg transition duration-300 transform hover:scale-105">
+                    Contactá a nuestros socios y colaboradores
+                </button>
+            </div>
+        </section>
 
-                <!-- Item 1: Expertos en la materia -->
-                <div class="bg-custom-lilac p-8 rounded-2xl">
-                    <!-- Icono Placeholder -->
-                    <div class="flex justify-center items-center mb-4">
-                        <svg class="w-12 h-12 icon-color" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.286Z" />
-                        </svg>
+        <!-- Sección "Especializados" -->
+        <section id="especializados" class="py-20 md:py-28 bg-secondary-dark">
+            <div class="container mx-auto px-6">
+                <div class="lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center">
+                    <div class="mb-12 lg:mb-0">
+                        <span class="text-accent font-semibold">Quiénes Somos</span>
+                        <h3 class="mt-2 text-3xl md:text-4xl font-extrabold text-light">
+                            Especializados en Derechos Digitales
+                        </h3>
+                        <p class="mt-6 text-lg text-muted-light">
+                            Privaia® Asociación Civil, es un grupo de profesionales de diversas disciplinas, con un enfoque especializado en la protección de los derechos humanos en su intersección con las nuevas tecnologías.
+                        </p>
+                        <p class="mt-4 text-lg text-muted-light">
+                            Nos hemos capacitado para intervenir en la promoción, el debate, y el desarrollo de políticas públicas, así como en la educación, la investigación y las acciones jurídicas que integran el objeto de nuestra Asociación.
+                        </p>
                     </div>
-                    <h3 class="text-xl font-bold text-custom-dark mb-2">Expertos en la materia</h3>
-                    <p class="text-custom-gray">
-                        Nuestro equipo está compuesto por profesionales con amplia experiencia, certificaciones internacionales en permanente capacitación de las novedades del mundo tecnológico.
+                    <div class="flex justify-center">
+                        <div class="relative w-full max-w-md p-8 bg-card-dark rounded-xl shadow-lg">
+                           <div class="absolute top-0 left-0 -mt-4 -ml-4 w-16 h-16 bg-accent rounded-full flex items-center justify-center text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" viewBox="0 0 20 20" fill="currentColor">
+                                  <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                                  <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.022 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                                </svg>
+                           </div>
+                           <h4 class="text-xl font-bold text-light">Nuestro Enfoque</h4>
+                           <p class="mt-3 text-muted-light">
+                                Combinamos experiencia legal, tecnológica y social para abordar los desafíos de la era digital y proteger tus derechos fundamentales.
+                           </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección "Objeto" -->
+        <section id="objeto" class="py-20 md:py-28 bg-primary">
+            <div class="container mx-auto px-6">
+                <div class="text-center max-w-4xl mx-auto">
+                    <span class="text-accent font-semibold">Nuestra Misión</span>
+                    <h3 class="mt-2 text-3xl md:text-4xl font-extrabold text-light">
+                        Objeto de la Asociación Civil
+                    </h3>
+                    <p class="mt-6 text-lg text-muted-light">
+                        Como Asociación Civil nos moviliza la defensa de tus derechos como ciudadano. Nos comprometemos a intervenir activamente para promover el debate y control necesarios que aseguren prácticas responsables en el tratamiento de nuestros Datos Personales y la protección de otros Derechos Digitales.
                     </p>
                 </div>
-
-                <!-- Item 2: Enfoque personalizado -->
-                <div class="bg-custom-lilac p-8 rounded-2xl border-2 border-custom-purple shadow-lg">
-                    <!-- Icono Placeholder -->
-                    <div class="flex justify-center items-center mb-4">
-                        <svg class="w-12 h-12 icon-color" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h2.25M3.75 3h-1.5m1.5 0h16.5m0 0h1.5m-1.5 0v11.25A2.25 2.25 0 0 1 18 16.5h-2.25m-7.5 0h7.5m-7.5 0-1 3m8.5-3 1 3m0 0 .5 1.5m-.5-1.5h-9.5m0 0-.5 1.5M9 11.25v1.5M12 9v3.75m3-6v6" />
-                        </svg>
+                <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+                    <!-- Card 1 -->
+                    <div class="bg-card-dark p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 hover:-translate-y-1">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-accent text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2V10a2 2 0 012-2h8z" /></svg>
+                        </div>
+                        <h4 class="mt-5 text-xl font-bold text-light">Debate y Control</h4>
+                        <p class="mt-2 text-muted-light">Promovemos la discusión pública y el control sobre cómo se utilizan las tecnologías y los datos personales.</p>
                     </div>
-                    <h3 class="text-xl font-bold text-custom-dark mb-2">Enfoque personalizado</h3>
-                    <p class="text-custom-gray">
-                        Adaptamos nuestros servicios a las necesidades específicas, garantizando soluciones eficaces y prácticas a la medida de sus negocios.
-                    </p>
-                </div>
-
-                <!-- Item 3: Compromiso ético y responsable -->
-                <div class="bg-custom-lilac p-8 rounded-2xl">
-                    <!-- Icono Placeholder -->
-                    <div class="flex justify-center items-center mb-4">
-                        <svg class="w-12 h-12 icon-color" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
-                           <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m-7.5-2.962a3.752 3.752 0 0 1-4.238-4.238 3.752 3.752 0 0 1 4.238-4.238 3.752 3.752 0 0 1 4.238 4.238A3.752 3.752 0 0 1 10.5 11.25m-3.75 2.25c-.918 0-1.733-.234-2.458-.635A3.752 3.752 0 0 1 6 11.25c0-1.59.962-2.956 2.344-3.535A3.752 3.752 0 0 1 10.5 6c1.59 0 2.956.962 3.535 2.344A3.752 3.752 0 0 1 15 11.25c0 .595-.14 1.158-.385 1.664M5.25 18.75h13.5" />
-                        </svg>
+                    <!-- Card 2 -->
+                    <div class="bg-card-dark p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 hover:-translate-y-1">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-accent text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9V3" /></svg>
+                        </div>
+                        <h4 class="mt-5 text-xl font-bold text-light">Visión Interdisciplinaria</h4>
+                        <p class="mt-2 text-muted-light">Creemos que la reflexión debe ser multisectorial, guiada siempre por la ética y los Derechos Humanos.</p>
                     </div>
-                    <h3 class="text-xl font-bold text-custom-dark mb-2">Compromiso ético y responsable</h3>
-                    <p class="text-custom-gray">
-                        Promovemos el uso ético y responsable de los datos y la IA, asegurando el respeto por los derechos de privacidad.
-                    </p>
+                    <!-- Card 3 -->
+                    <div class="bg-card-dark p-8 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300 hover:-translate-y-1">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-accent text-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        </div>
+                        <h4 class="mt-5 text-xl font-bold text-light">Ética y Derechos</h4>
+                        <p class="mt-2 text-muted-light">Nuestro pilar fundamental es el apoyo incondicional en los Derechos Humanos como guía para la era digital.</p>
+                    </div>
                 </div>
+            </div>
+        </section>
 
+    </main>
+    
+    <!-- Contact Modal Form -->
+    <div id="contact-modal" class="hidden fixed inset-0 bg-black bg-opacity-70 z-50 flex items-center justify-center p-4 transition-opacity duration-300">
+        <div class="bg-white rounded-lg shadow-xl p-8 relative max-w-lg w-full text-gray-800">
+            <button id="close-modal-button" class="absolute top-3 right-3 text-gray-400 hover:text-gray-800 transition-colors">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+            </button>
+            <h3 class="text-2xl font-bold text-primary mb-6 text-center">Formulario de Contacto</h3>
+            <form action="https://formspree.io/f/xqabnapz" method="POST">
+                <!-- Name Field -->
+                <div class="mb-4">
+                    <label for="name" class="block text-gray-700 font-semibold mb-2">Nombre</label>
+                    <input type="text" id="name" name="name" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent" required>
+                </div>
+                <!-- Email Field -->
+                <div class="mb-4">
+                    <label for="email" class="block text-gray-700 font-semibold mb-2">Email</label>
+                    <input type="email" id="email" name="email" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent" required>
+                </div>
+                <!-- Message Field -->
+                <div class="mb-6">
+                    <label for="message" class="block text-gray-700 font-semibold mb-2">Mensaje</label>
+                    <textarea id="message" name="message" rows="4" class="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent" required></textarea>
+                </div>
+                <!-- Submit Button -->
+                <div>
+                    <button type="submit" class="w-full bg-accent hover:bg-blue-500 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105">
+                        Enviar Mensaje
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Footer / Contacto -->
+    <footer id="contacto" class="bg-secondary-dark text-white">
+        <div class="container mx-auto px-6 py-8">
+             <!-- Vínculos a Redes Sociales y Mail -->
+            <div class="flex justify-center space-x-6">
+                <a href="mailto:contacto@privaiaasoc.com.ar" aria-label="Email" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-7 h-7" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                       <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                    </svg>
+                </a>
+                <a href="https://www.instagram.com/privaiasoc" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                    </svg>
+                </a>
+                <a href="https://www.linkedin.com/company/privaiaasoc" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition duration-300">
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                    </svg>
+                </a>
+            </div>
+             <!-- Información -->
+            <div class="mt-8 text-center text-sm text-gray-400">
+                <p>Desde 2023 Privaia A.C.</p>
             </div>
         </div>
-    </section>
+    </footer>
 
-    <!-- Sección Misión con espacio inferior reducido -->
-    <section class="bg-white pb-20 pt-8 sm:pb-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-center text-custom-dark">
-                Nuestra Misión: Proteger tus Derechos en la Era Digital.
-            </h2>
-        </div>
-    </section>
+    <script>
+        // --- Script para el menú móvil ---
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
 
-    <!-- Placeholder para la siguiente sección -->
-    <section class="bg-custom-lilac py-20">
-         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-4xl font-bold text-center text-custom-dark">
-                Nuestros servicios
-            </h2>
-         </div>
-    </section>
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
 
+        // Opcional: Cerrar menú al hacer clic en un enlace de sección
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- Script para el Modal de Contacto ---
+        const openContactButton = document.getElementById('open-contact-button');
+        const contactModal = document.getElementById('contact-modal');
+        const closeModalButton = document.getElementById('close-modal-button');
+
+        if (openContactButton && contactModal && closeModalButton) {
+            // Abrir el modal
+            openContactButton.addEventListener('click', () => {
+                contactModal.classList.remove('hidden');
+            });
+
+            // Cerrar el modal con el botón 'X'
+            closeModalButton.addEventListener('click', () => {
+                contactModal.classList.add('hidden');
+            });
+
+            // Cerrar el modal al hacer clic fuera del formulario (en el overlay)
+            contactModal.addEventListener('click', (e) => {
+                if (e.target === contactModal) {
+                    contactModal.classList.add('hidden');
+                }
+            });
+        }
+    </script>
 </body>
 </html>
-
